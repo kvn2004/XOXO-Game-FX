@@ -1,0 +1,31 @@
+#grdMain{
+    -fx-background-color: #1f1f1f;
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+    -fx-padding: 20;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+}
+
+.button {
+
+    -fx-background-color:  #2d3436;
+    -fx-font-size: 30px;
+    -fx-min-width: 85;
+    -fx-min-height:85;
+    -fx-max-width: 85;
+    -fx-max-height: 85;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 0);
+}
+
+
+.button:hover {
+    -fx-background-color:#6e7677;
+    -fx-background-radius: 5;
+}

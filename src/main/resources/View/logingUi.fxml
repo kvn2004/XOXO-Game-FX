@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Css/logingUiCss.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ijse.tictactoe.Controller.logingUiController">
+   <children>
+      <ImageView fitHeight="413.0" fitWidth="401.0" layoutX="-45.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assets/Tic%20Tac%20Toe.gif" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnPlay" buttonType="RAISED" layoutX="407.0" layoutY="333.0" onAction="#btnPlayOnAction" prefHeight="26.0" prefWidth="138.0" text="Play" />
+      <JFXTextField fx:id="txtPlayerName" focusColor="#1f3540" layoutX="366.0" layoutY="137.0" prefHeight="26.0" prefWidth="220.0" unFocusColor="#534e4e" />
+      <Label layoutX="361.0" layoutY="120.0" text="Player Name">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="361.0" layoutY="208.0" text="First Player">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="366.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assets/icons8-robot-30.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="476.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assets/icons8-human-head-30.png" />
+         </image>
+      </ImageView>
+      <JFXCheckBox fx:id="cBAi" checkedColor="#1f3540" layoutX="416.0" layoutY="247.0" onAction="#CheckBoxOnAction" text="  ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox fx:id="cbHuman" checkedColor="#1f3540" layoutX="518.0" layoutY="247.0" onAction="#CheckBoxOnAction" text="  ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXCheckBox>
+   </children>
+</AnchorPane>

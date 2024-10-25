@@ -1,0 +1,10 @@
+.button{
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+    -fx-background-color: #2d3436;
+}
+.button:hover{
+    -fx-text-fill: #2d3436;
+    -fx-background-color: #dfe6e9;
+    -fx-transition:background-color 1s ease-in-out;
+}
