@@ -6,5 +6,6 @@ public abstract class Player {
     public Player(BoardImpl board) {
         this.board = board;
     }
+
     public abstract void move(int row, int col);
 }

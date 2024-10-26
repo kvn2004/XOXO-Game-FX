@@ -13,12 +13,11 @@ public class BoardImpl implements Board {
     }
 
 
-
     @Override
     public void initializeBoard() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                pieces[i][i] = Piece.Null;
+        for (int i = 0; i < pieces.length; i++) {
+            for (int j = 0; j < pieces[i].length; j++) {
+                pieces[i][j] = Piece.Null;
             }
         }
 
@@ -41,10 +40,8 @@ public class BoardImpl implements Board {
                 System.out.print(pieces[i][j] + " |");
             }
             System.out.println();
-            if (i < 2) {
-                System.out.println("-----------------");
-            }
         }
+        System.out.println("------------------");
     }
 
     @Override
