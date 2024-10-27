@@ -1,5 +1,7 @@
 package edu.ijse.tictactoe.Service;
 
+import java.util.Random;
+
 public class AiPlayer extends Player {
     public AiPlayer(BoardImpl board) {
         super(board);
@@ -10,6 +12,21 @@ public class AiPlayer extends Player {
         if (board.isLegalMove(row, col)) {
             board.updateMove(row, col, Piece.O);
         }
+    }
+
+    public void firstMove() {
+        Random rand = new Random();
+        int row, col;
+
+        // Generate random row and column values until a legal move is found
+        do {
+            row = rand.nextInt(3); // Bounds set to 3 for a 3x3 Tic Tac Toe board
+            col = rand.nextInt(3);
+        } while (!board.isLegalMove(row, col)); // Checks if the move is legal
+
+        // Make the move
+        board.updateMove(row, col, Piece.O);
+
     }
 
     private int minimax(Piece[][] pieces, int depth, boolean isMaximizing) {

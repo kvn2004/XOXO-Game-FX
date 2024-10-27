@@ -8,3 +8,6 @@
     -fx-background-color: #dfe6e9;
     -fx-transition:background-color 1s ease-in-out;
 }
+#txtPlayerName{
+   -fx-prompt-text-fill: red;
+}

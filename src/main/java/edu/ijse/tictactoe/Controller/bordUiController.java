@@ -5,11 +5,15 @@ import edu.ijse.tictactoe.Service.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+
+import java.util.Optional;
 
 public class bordUiController implements BoardUI {
     HumanPlayer humanPlayer;
@@ -75,6 +79,12 @@ public class bordUiController implements BoardUI {
     @FXML
     private Label lblWinner;
 
+    private static int aiOrHuman = 0;
+
+    public static void setAiOrHuman(int player) {
+        aiOrHuman = player;
+    }
+
     public void setPlayerName(String playerName) {
         lblname.setText("X { " + playerName + " }");
     }
@@ -83,15 +93,18 @@ public class bordUiController implements BoardUI {
         Button button = (Button) actionEvent.getSource();
         int row = Integer.parseInt(button.getId().split("")[3]);
         int col = Integer.parseInt(button.getId().split("")[4]);
-
-        humanPlayer.move(row, col);
-        aiPlayer.findBestMove();
-        board.printBoard();
-        updateUi();
-        if (board.getWinner() != null) {
-            notifyWinner(board.getWinner().getWinningPiece());
-        } else if (board.isBoardFull()) {
-            lblWinner.setText("TIE");
+        if (aiOrHuman == 0) {
+            System.out.println("human");
+            humanPlayer.move(row, col);
+            aiPlayer.findBestMove();
+            board.printBoard();
+            updateUi();
+            if (board.getWinner() != null) {
+                notifyWinner(board.getWinner().getWinningPiece());
+            } else if (board.isBoardFull()) {
+                lblWinner.setText("TIE");
+                WantToPlayAgain();
+            }
         }
     }
 
@@ -129,9 +142,23 @@ public class bordUiController implements BoardUI {
         if (winner == Piece.O) {
             lblWinner.setText(lblname.getText() + " YOU LOOSE");
         }
-//        WantToPlayAgain();
+        WantToPlayAgain();
     }
 
-//    private void WantToPlayAgain() {
-//    }
+    private void WantToPlayAgain() {
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setTitle("TIC TAC TOE");
+        confirmAlert.setHeaderText(lblWinner.getText());
+        confirmAlert.setContentText("Are you sure you want to PLAY AGAIN?");
+
+
+        Optional<ButtonType> result = confirmAlert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            board.initializeBoard();
+            updateUi();
+        } else {
+            System.out.println("User canceled.");
+        }
+
+    }
 }
